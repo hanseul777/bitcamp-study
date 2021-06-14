@@ -1,57 +1,35 @@
-// HashSet과 사용자 정의 데이터 타입 - hashCode()만 오버라이딩
-package com.eomcs.basic.ex07;
+package com.eomcs.lang.ex07;
 
-import java.util.HashSet;
-
+//# 메서드 : call by reference II
+//
 public class Exam0330 {
 
-  // 사용자 정의 데이터 타입
-  static class Member {
-    String name;
-    int age;
+  // main()에서 만든 int a와 int b의 값을 바꾸고 싶다면,
+  // primitive data type 값을 직접 넘기지 말고 
+  // 객체에 담아 넘겨라!
+  static class MyObject {
+    int a;
+    int b;
+  }
 
-    public Member(String name, int age) {
-      this.name = name;
-      this.age = age;
-    }
-
-    @Override
-    public String toString() {
-      return "Member [name=" + name + ", age=" + age + "]";
-    }
-
-    @Override
-    public int hashCode() {
-      final int prime = 31;
-      int result = 1;
-      result = prime * result + age;
-      result = prime * result + ((name == null) ? 0 : name.hashCode());
-      return result;
-    }
+  static void swap(MyObject ref) {
+    System.out.printf("swap(): a=%d, b=%d\n", ref.a, ref.b);
+    int temp = ref.a;
+    ref.a = ref.b;
+    ref.b = temp;
+    System.out.printf("swap(): a=%d, b=%d\n", ref.a, ref.b);
   }
 
   public static void main(String[] args) {
+    // MyObject 설계도에 따라 int a와 int b 메모리를 만든다.
+    // 그리고 그 메모리(인스턴스=객체)의 주소를 ref 변수에 저장한다.
+    MyObject ref = new MyObject();
+    ref.a = 100;
+    ref.b = 200;
 
-    Member v1 = new Member("홍길동", 20);
-    Member v2 = new Member("임꺽정", 30);
-    Member v3 = new Member("유관순", 16);
-    Member v4 = new Member("안중근", 20);
-    Member v5 = new Member("유관순", 16);
-
-    System.out.println(v3.equals(v5)); // true
-
-    HashSet<Member> set = new HashSet<>();
-    set.add(v1);
-    set.add(v2);
-    set.add(v3);
-    set.add(v4);
-
-    // equals()와 hashCode()를 함께 비교하기 때문에
-    // hashCode() 만 오버라이딩 해봐야 소용없다.
-    set.add(v5);
-
-    System.out.println(set);
+    // a, b 변수가 들어 있는 인스턴스(객체=메모리)의 주소를 
+    // swap()에 넘긴다. => 그래서 "call by reference"인 것이다.
+    swap(ref);
+    System.out.printf("main(): a=%d, b=%d\n", ref.a, ref.b);
   }
 }
-
-

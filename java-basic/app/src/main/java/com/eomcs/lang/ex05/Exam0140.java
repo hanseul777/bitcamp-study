@@ -1,25 +1,22 @@
-// Stack 클래스 사용법 - search()
-package com.eomcs.basic.ex05;
+package com.eomcs.lang.ex05;
 
-import java.util.Stack;
-
+//# 산술 연산자 : 데이터 타입과 연산자
+//
 public class Exam0140 {
-
   public static void main(String[] args) {
-    Stack<String> stack = new Stack<>();
+    // 모든 종류의 데이터에 대해 산술 연산자를 사용할 수 있는 것은 아니다.
+    // 데이터 타입에 따라 제공되는 연산자가 다르다.
     
-    // push() - 스택의 맨 마지막에 값을 추가한다.
-    stack.push("aaa");
-    stack.push("bbb");
-    stack.push("ccc");
+    System.out.println(5.75 % 0.24);  // OK!
+    //System.out.println(true % false); // boolean 타입에 대해서는 산술 연산자를 사용할 수 없다.
+    //System.out.println(true + true); // 컴파일 오류!
     
-    // search() - 스택의 맨 위에서부터 해당 값을 찾는다. 위치는 맨 위가 1이다.
-    System.out.println(stack.search(new String("ccc"))); // 1
-    System.out.println(stack.search(new String("bbb"))); // 2
-    System.out.println(stack.search(new String("aaa"))); // 3
-    System.out.println(stack.search(new String("xxx"))); // -1
+    System.out.println("Hello," + "world!"); // OK! '+' 연산자는 문자열 연결 용도로 사용된다.
+    //System.out.println("Hello," - "o,"); // 컴파일 오류!
+    //System.out.println("Hello," * 5); // 컴파일 오류!
     
+    System.out.println(true && true);
+    //System.out.println(10 && 10); // 컴파일 오류!이다.
   }
-
 }
 
