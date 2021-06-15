@@ -1,6 +1,6 @@
 package com.eomcs.lang.ex05;
 
-//# 산술 연산자 : 암시적 형변환(implicit type conversion)
+//# 산술 연산자 : 암시적 형변환(implicit type conversion) -> 임시적으로 변환(변수타입전체가 바뀌는게 x)
 //
 public class Exam0150 {
   public static void main(String[] args) {
