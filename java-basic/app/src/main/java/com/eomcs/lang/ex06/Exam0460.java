@@ -17,8 +17,8 @@ public class Exam0460 {
     list.add(true);
     list.add(365);
 
-    for (int i = 0; i < list.size(); i++)
-      System.out.println(list.get(i));
+    for (int i = 0; i < list.size(); i++) // 배열->length 컬랙션->size : 크기의단위
+      System.out.println(list.get(i)); //get(index) (약자인 i를 변수로 많이 사용.)
   }
 }
 
