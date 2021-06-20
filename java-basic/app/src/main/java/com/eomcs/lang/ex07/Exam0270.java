@@ -9,6 +9,7 @@ public class Exam0270 {
   //       예) m1("aaa", "bbb", "aaa@test.com", "bbb@test.com");
   //       어느 값이 names 배열에 들어가고, 어느 값이 emails 배열에 들어가는가?
   //  static void m1(String... names, String... emails) {} // 컴파일 오류!
+  //    static void m1(String[] names, String[] emails) {} //ok!
   //
   //    => 중간에 다른 타입이 온다 하더라도 안된다.
   //  static void m1(String... names, int a, String... emails) {}// 컴파일 오류!

@@ -34,7 +34,7 @@ public class Exam0130 {
       // 출력할 스페이스의 개수를 계산하는 코드를 
       // 블록에 묶어 놓고 이름을 부여해두고 사용하면
       // 코드를 이해하기가 더 쉽다.
-      printSpaces(getSpaceLength(len, starLen));
+      printSpaces(getSpaceLength(len, starLen)); // 안 쪽부터 실행
       printStars(starLen);
       System.out.println();
     }

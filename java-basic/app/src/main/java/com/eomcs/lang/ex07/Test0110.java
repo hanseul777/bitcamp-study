@@ -4,7 +4,20 @@ import java.util.Scanner;
 
 //# 메서드 : 사용 전
 //
-public class Exam0110 {
+public class Test0110 {
+
+  static void printSpaces (int spaceLen) {
+    int count = 1;
+    while (count <= spaceLen) {
+      System.out.println(" ");
+      count ++;
+    }
+  }
+
+  static void printStars (int starCnt) {
+
+  }
+
   public static void main(String[] args) {
     Scanner keyScan = new Scanner(System.in);
     System.out.print("밑변의 길이? ");

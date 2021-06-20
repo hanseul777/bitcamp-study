@@ -4,6 +4,7 @@ package com.eomcs.lang.ex07;
 //
 public class Exam0271 {
 
+  // 가변파라미터는 반드시 맨 끝에 한 개만!!
   static void m2(int a, String... names) {} // OK!
 
   // 배열 파라미터는 여러 개 선언할 수 있다.
