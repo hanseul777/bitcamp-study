@@ -12,8 +12,8 @@ public class Exam0630 {
 
     java.util.Set keySet = props.keySet();
 
-    for (Object key : keySet) {
-      String value = System.getProperty((String) key);
+    for (Object key : keySet) { //object : keySet목록에 있는거 암거나줘~
+      String value = System.getProperty((String) key); //key문자열이라고 따로 선언
       System.out.printf("%s = %s\n", key, value);
     }
   }

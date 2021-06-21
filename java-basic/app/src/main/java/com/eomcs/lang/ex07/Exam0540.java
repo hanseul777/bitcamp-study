@@ -12,11 +12,11 @@ public class Exam0540 {
     // 평균: 96.9
     //
 
-    if (args.length < 4) {
-      System.out
-          .println("실행 형식: java -cp ./bin/main com.eomcs.lang.ex07.Exam0540 이름 국어점수 영어점수 수학점수");
+    if (args.length < 4) { //이름 국 영 수 전부 나오려면 4이상이어야 가능 함.
+      System.out.println(
+          "실행 형식: java -cp ./bin/main com.eomcs.lang.ex07.Exam0540 이름 국어점수 영어점수 수학점수");
       return;
-    }
+    } // 4보다 작으면 더 입력하라고 출력하는 것.
 
     int sum = 0;
     for (int i = 1; i < args.length; i++)
@@ -24,7 +24,7 @@ public class Exam0540 {
 
     System.out.printf("이름: %s\n", args[0]);
     System.out.printf("총점: %d\n", sum);
-    System.out.printf("평균: %.1f\n", sum / 3f);
+    System.out.printf("평균: %.1f\n", sum / 3f); //%.1 : 소수점이하는 하나만 출력하라. / 3f : float으로 형변환
   }
 }
 
