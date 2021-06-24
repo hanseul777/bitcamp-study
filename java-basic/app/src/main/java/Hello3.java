@@ -1,5 +1,6 @@
-class Hello2 {
+
+class Hello3 {
     public static void main(String[] args) {
-        //최소문법
+        // 최소문법
     }
 }

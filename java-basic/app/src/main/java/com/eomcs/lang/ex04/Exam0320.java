@@ -9,7 +9,7 @@ public class Exam0320 {
     
     int age1 = 20;
     
-    //r-value 자리에 변수를 놓을 수 있다.(right-value) (l-value = left-value)
+    //r-value 자리에 변수를 놓을 수 있다.
     int age2 = age1;
     
     //의미

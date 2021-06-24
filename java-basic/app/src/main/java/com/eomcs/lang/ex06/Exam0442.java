@@ -1,6 +1,6 @@
 package com.eomcs.lang.ex06;
 
-//# 흐름 제어문 - for(;;) 와 배열
+// # 흐름 제어문 - for(;;) 와 배열
 //
 public class Exam0442 {
   public static void main(String[] args) {

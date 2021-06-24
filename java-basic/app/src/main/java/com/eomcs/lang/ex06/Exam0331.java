@@ -11,7 +11,7 @@ public class Exam0331 {
     //      라벨: 문장;
     //      라벨: {문장1, 문장2, ...}
 
-    myloop: // 라벨명 + 콜론
+    myloop:
       while (x <= 9) {
 
         while (y <= 9) {

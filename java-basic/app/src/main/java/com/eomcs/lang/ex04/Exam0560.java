@@ -9,7 +9,6 @@ public class Exam0560 {
     int v;
     //System.out.println(v); // 컴파일 오류!
     
-    
     // 일반 변수와 달리 new 명령으로 확보된 메모리는 종류에 상관없이 기본 값으로 자동 초기화 된다.
     // 따라서 배열 메모리 또한 생성되는 순간 기본 값으로 자동 초기화 된다.
     // - 정수 배열(byte[], short[], int[], long[]) : 0

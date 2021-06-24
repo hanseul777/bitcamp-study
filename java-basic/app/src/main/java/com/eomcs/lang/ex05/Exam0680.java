@@ -6,7 +6,7 @@ public class Exam0680 {
   public static void main(String[] args) {
     int i = 2;
     int result = ++i + ++i * ++i;
-    // 위의 문장은 다음 문장들로 변경된다. -> 전위연산 끝내고 사칙연산 시작!!! (곱하기부터 시작x)
+    // 위의 문장은 다음 문장들로 변경된다.
     // i = i + 1;
     // t1 = i;
     // i = i + 1;

@@ -1,17 +1,17 @@
 package com.eomcs.lang.ex07;
 
 //# 메서드 : 인스턴스와 Heap 메모리 영역
+//
 public class Exam0430 {
 
-  //Heap 메모리에 어떤 변수를 만들어야 하는지 적어 놓은 설계도 : class
   static class MyObject {
     int a;
     int b;
-  } // Exam0430.class에 포함되어 있는게 아님. 각각의 클래스파일이 만들어짐.
-  // 중첩 클래스
-
+  }
+  
   static MyObject getMyObject() {
-    MyObject ref = new MyObject(); //new로 만든 변수는 Heap에 존재. 사라지지않는다. 
+    // Exam03_3.java 에 정의된 MyObject 클래스 사용
+    MyObject ref = new MyObject();
     ref.a = 100;
     ref.b = 200;
 

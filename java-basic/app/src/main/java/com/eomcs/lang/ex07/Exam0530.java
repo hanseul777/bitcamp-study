@@ -10,9 +10,7 @@ public class Exam0530 {
     //
     int sum = 0;
     for (String arg : args)
-      sum += Integer.parseInt(arg); //Integer : class / parseInt : Method
-    // Interger안에 parseInt라는 도구가 있는데
-    // s는 문자열이라 정수를 넣을 수 없지만 parseInt를 통해 정수를 입력해도 오류 x
+      sum += Integer.parseInt(arg);
     System.out.printf("합계: %d\n", sum);
   }
 }

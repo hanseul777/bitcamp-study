@@ -6,45 +6,41 @@ import java.util.Scanner;
 //
 public class Test0110 {
 
-  static void printSpaces (int spaceLen) {
-    int count = 1;
-    while (count <= spaceLen) {
-      System.out.println(" ");
-      count ++;
+  static void 공백출력해라(int 공백길이) {
+    int 카운트 = 1;
+    while (카운트 <= 공백길이) {
+      System.out.print(" ");
+      카운트++;
     }
   }
 
-  static void printStars (int starCnt) {
+  static void 별출력해라(int 별개수) {
+    int 카운트 = 1;
+    while (카운트 <= 별개수) {
+      System.out.print("*");
+      카운트++;
+    }
+  }
 
+  static int 공백개수는(int 총개수, int 별개수) {
+    return (총개수 - 별개수) / 2;
+  }
+
+  static int 총개수는() {
+    Scanner 키보드입력기 = new Scanner(System.in);
+    System.out.print("밑변의 길이? ");
+    int 총개수 = 키보드입력기.nextInt();
+    키보드입력기.close();
+    return 총개수;
   }
 
   public static void main(String[] args) {
-    Scanner keyScan = new Scanner(System.in);
-    System.out.print("밑변의 길이? ");
-    int len = keyScan.nextInt();
+    int 총개수 = 총개수는();
 
-    int starLen = 1;
-    while (starLen <= len) {
-      // 별 앞에 공백 출력
-      int spaceCnt = 1;
-      int spaceLen = (len - starLen) / 2;
-      while (spaceCnt <= spaceLen) {
-        System.out.print(" ");
-        spaceCnt++;
-      }
-
-      // 별 출력
-      int starCnt = 1;
-      while (starCnt <= starLen) {
-        System.out.print("*");
-        starCnt++;
-      }
-
-      // 출력 줄 바꾸기
+    for (int 별개수 = 1; 별개수 <= 총개수; 별개수 += 2) {
+      공백출력해라(공백개수는(총개수, 별개수));
+      별출력해라(별개수);
       System.out.println();
-      starLen += 2;
-
     }
-    keyScan.close();
   }
 }

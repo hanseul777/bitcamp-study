@@ -1,13 +1,12 @@
 package com.eomcs.lang.ex07;
 
 //# 메서드 : 스택 메모리 응용 II - 재귀호출
-//단점 : stack오버플로어 에러가 뜰 수 있다.
+//
 public class Exam0450 {
 
   static int sum(int value) {
     if (value == 1)
-      return 1; // sum이 1이 될 때까지 나오는 value를 sum에 넣어서 반복호출
-    // 다른 메소드인 것 처럼 생각하기. 로컬변수를 공유하는게 x.
+      return 1;
 
     return value + sum(value - 1);
   }
