@@ -31,7 +31,7 @@ public class App {
     MemberHandler.keyScan = keyScan;
     ComputeHandler.keyScan = keyScan;
 
-    //규칙에 따라 만든 크래스에 대해
+    //규칙에 따라 만든 클래스에 대해
     //규칙에서 정의한 메서드를 호출하려면
     //먼저 그 클래스의 인스턴스를 생성한 후
     //그 생성한 인스턴스를 이용하여 메서드를 호출해야 한다.

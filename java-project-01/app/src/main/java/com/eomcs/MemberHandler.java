@@ -75,7 +75,7 @@ public class MemberHandler implements Handler {
     member.registeredDate = new Date(); // 현재의 날짜와 시간을 생성하여 배열에 저장한다.
 
 
-    ArrayList2.append(member); // arraylist에 member 인스턴스를 담음.
+    ArrayList2.append(member); // arraylist2에 member 인스턴스를 담음.
 
     System.out.println("회원을 등록했습니다.");
   }
