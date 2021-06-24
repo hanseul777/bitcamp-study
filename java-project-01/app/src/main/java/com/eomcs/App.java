@@ -38,34 +38,57 @@ public class App {
 
     // App 클래스에서 만든 Scanner 인스턴스를 BoardHandler 와 같이 쓴다.
     BoardHandler.keyScan = keyScan;
-    
 
-    System.out.println("[게시판 관리]");
 
+    menuLoop: while (true) {
+
+      System.out.println("[메뉴]");
+      System.out.println("  1. 게시글 관리");
+      System.out.println("  2. 회원 관리");
+      System.out.print("메뉴를 선택하시오. (종료: quit) [1..2] ");
+      String menuNo = keyScan.nextLine();
+
+      switch (menuNo) {
+        case "1":
+          excute();
+          break;
+
+        case "2":
+          break;
+        case "quit":
+          break menuLoop;
+        default:
+          System.out.println("메뉴 번호가 옳지 않습니다.");
+      }
+      System.out.println();
+    }
+
+    keyScan.close();
+    System.out.println("안녕히 가세요!");
+  }
+
+  static void excute() {
     loop: while (true) {
-      System.out.print("게시글 관리> ");
+      System.out.print("게시글 관리 > ");
       String command = keyScan.nextLine();
 
+
       switch (command) {
-        case "list": BoardHandler.list(); break;
-        case "add": BoardHandler.add(); break;
-        case "update": BoardHandler.update(); break;
-        case "delete": BoardHandler.delete(); break;
-        case "view": BoardHandler.view(); break;
-        case "quit":
+        case "list" :BoardHandler.list(); break;
+        case "add" : BoardHandler.add(); break;
+        case "update" : BoardHandler.update(); break;
+        case "delete" : BoardHandler.delete(); break;
+        case "view" : BoardHandler.view(); break;
+        case "back" : 
           break loop;
         default:
           System.out.println("지원하지 않는 명령입니다.");
       }
+      System.out.println();
+
     }
 
-    keyScan.close();
-
-    System.out.println("안녕히 가세요!");
   }
 
-
-
-
-
 }
+
