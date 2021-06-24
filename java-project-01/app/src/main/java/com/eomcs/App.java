@@ -1,6 +1,5 @@
 package com.eomcs;
 
-import java.util.Date;
 import java.util.Scanner;
 
 //01. main(): 프로그램 entry point
@@ -23,37 +22,41 @@ import java.util.Scanner;
 //18. 데이터 목록을 다루는 코드를 재사용하기 쉽게 별도의 클래스로 분리한다.
 public class App {
 
-  // 한 개의 게시글을 담을 복합 데이터의 변수를 설계
-  static class Board {
-    String title;
-    String content;
-    String password;
-    int viewCount;
-    Date createdDate;
-  }
-
   static Scanner keyScan = new Scanner(System.in);
 
   public static void main(String[] args) {
 
-    // App 클래스에서 만든 Scanner 인스턴스를 BoardHandler 와 같이 쓴다.
+    // App 클래스에서 만든 Scanner 인스턴스를 BoardHandler, MemberHandler 와 같이 쓴다.
     BoardHandler.keyScan = keyScan;
+    MemberHandler.keyScan = keyScan;
+    ComputeHandler.keyScan = keyScan;
 
+    //규칙에 따라 만든 크래스에 대해
+    //규칙에서 정의한 메서드를 호출하려면
+    //먼저 그 클래스의 인스턴스를 생성한 후
+    //그 생성한 인스턴스를 이용하여 메서드를 호출해야 한다.
+    BoardHandler boardHandler = new BoardHandler();
+    MemberHandler memberHandler = new MemberHandler();
+    ComputeHandler computeHandler = new ComputeHandler(); // public을 호출하기 위해 인스턴스 만들어 줌.
 
     menuLoop: while (true) {
 
       System.out.println("[메뉴]");
       System.out.println("  1. 게시글 관리");
       System.out.println("  2. 회원 관리");
-      System.out.print("메뉴를 선택하시오. (종료: quit) [1..2] ");
+      System.out.println("  3. 계산기");
+      System.out.print("메뉴를 선택하시오. (종료: quit) [1..3] ");
       String menuNo = keyScan.nextLine();
 
       switch (menuNo) {
         case "1":
-          excute();
+          boardHandler.execute();
           break;
-
         case "2":
+          memberHandler.execute();
+          break;
+        case "3":
+          computeHandler.execute();
           break;
         case "quit":
           break menuLoop;
@@ -65,29 +68,6 @@ public class App {
 
     keyScan.close();
     System.out.println("안녕히 가세요!");
-  }
-
-  static void excute() {
-    loop: while (true) {
-      System.out.print("게시글 관리 > ");
-      String command = keyScan.nextLine();
-
-
-      switch (command) {
-        case "list" :BoardHandler.list(); break;
-        case "add" : BoardHandler.add(); break;
-        case "update" : BoardHandler.update(); break;
-        case "delete" : BoardHandler.delete(); break;
-        case "view" : BoardHandler.view(); break;
-        case "back" : 
-          break loop;
-        default:
-          System.out.println("지원하지 않는 명령입니다.");
-      }
-      System.out.println();
-
-    }
-
   }
 
 }

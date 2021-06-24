@@ -1,6 +1,6 @@
 package com.eomcs;
 
-public class ArrayList {
+public class ArrayList2 {
 
   static final int MAX_LENGTH = 100;
   static Object[] list = new Object[MAX_LENGTH]; //왜 Object? 어떤 인스턴스배열이라도 다 담을 수 있또록 하기 위해.

@@ -2,11 +2,40 @@ package com.eomcs;
 
 import java.util.Date;
 import java.util.Scanner;
-import com.eomcs.App.Board;
 
-public class BoardHandler {
+public class BoardHandler implements Handler { //Hansdler의 요구사항을 실행 -> implements
+
+  // 한 개의 게시글을 담을 복합 데이터의 변수를 설계
+  static class Board {
+    String title;
+    String content;
+    String password;
+    int viewCount;
+    Date createdDate;
+  }
 
   static Scanner keyScan;
+
+  public void execute() {
+    loop: while (true) {
+      System.out.print("게시글 관리 > ");
+      String command = keyScan.nextLine();
+
+
+      switch (command) {
+        case "list" : list(); break;
+        case "add" : add(); break;
+        case "update" : update(); break;
+        case "delete" : delete(); break;
+        case "view" : view(); break;
+        case "back" : 
+          break loop;
+        default:
+          System.out.println("지원하지 않는 명령입니다.");
+      }
+      System.out.println();
+    }
+  }
 
   static void list() {
     System.out.println("[게시글 목록]");
