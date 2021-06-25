@@ -40,9 +40,3 @@ public class ArrayList { // 3번에 전체적 흐름보여주는거 참고하면
   }
 
 }
-
-
-
-
-
-
