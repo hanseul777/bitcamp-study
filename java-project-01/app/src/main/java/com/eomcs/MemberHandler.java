@@ -11,7 +11,7 @@ public class MemberHandler implements Handler {
   // => 데이터 전송 객체(Date Transfer Object; DTO)
   // => 모델 객체
 
-  static class Member {
+  class Member {
     String name;
     String email;
     String password;
@@ -21,11 +21,25 @@ public class MemberHandler implements Handler {
 
   //인터페이스 : 호출하는 쪽과 호출당하는 쪽에서 지켜야 할 규칙. -> 호출할 때 일관된 이름을 사용.
 
-  static Scanner keyScan;
+  String memberGroupName;
+  Scanner keyScan;
+  ArrayList memberList = new ArrayList();
+
+  MemberHandler(Scanner keyScan) {
+    this.keyScan = keyScan;
+    this.memberGroupName = "일반";
+  }
+
+  MemberHandler(String memberGroupName, Scanner keyScan) {
+    this.memberGroupName = memberGroupName;
+    this.keyScan = keyScan;
+  }
 
   public void execute() { //implements를 사용하기 위해 public으로 바꿔줌. 
     loop: while (true) {
-      System.out.print("회원 관리 > ");
+      // 인스턴스 메서드에서 인스턴스 변수를 사용할 때
+      // this를 생략할 수 있다. -> 인스턴스변수가 자동으로 생성
+      System.out.print(/*this.*/memberGroupName + "/회원 관리 > ");
       String command = keyScan.nextLine();
 
 
@@ -44,17 +58,17 @@ public class MemberHandler implements Handler {
     }
   }
 
-  static void add() {
+  void add() {
     System.out.println("[회원 등록]");
 
-    if (ArrayList2.size == ArrayList2.MAX_LENGTH) {
+    if (memberList.size == ArrayList.MAX_LENGTH) { //BoardHandler를 한 번 실행했다면 다시 두 번째 사용할 때는 호출 x : 클래스는 한 번만 실행
       System.out.println("더이상 회원을 추가할 수 없습니다.");
       return;
     }
 
     // 한 개의 회원 데이터를 저장할 변수를 준비한다.
     // Member 설계도에 따라 변수를 만들고 그 주소를 리턴한다.
-    Member member = new Member(); 
+    Member member = new Member(); // new Member로 생성한 인스턴스배열의 첫주소가 member라는 레퍼런스에 들어감.
 
     System.out.print("이름: ");
     member.name = keyScan.nextLine();
@@ -75,15 +89,15 @@ public class MemberHandler implements Handler {
     member.registeredDate = new Date(); // 현재의 날짜와 시간을 생성하여 배열에 저장한다.
 
 
-    ArrayList2.append(member); // arraylist2에 member 인스턴스를 담음.
+    memberList.append(member); // arraylist의 append를 실행한 값에 member(레퍼런스)값이 들어감.
 
     System.out.println("회원을 등록했습니다.");
   }
 
-  static void list() {
+  void list() {
     System.out.println("[회원 목록]");
 
-    Object[] arr = ArrayList2.toArray();
+    Object[] arr = memberList.toArray(); //memberList값을 뽑아서 arr배열을 실행. 값을 ArrayList에서 가져와라
 
     for (int i = 0; i < arr.length; i++) { //arr의 크기만큼 한개씩 obj라는 변수에 담아서 처음부터끝까지 실행 (할 때는 이게 편함.)
       Member member = (Member) arr[i];  // Object배열(arr[i])에는 name(변수)이 없기 때문에 Member로 형변환.
@@ -95,18 +109,18 @@ public class MemberHandler implements Handler {
     }
   }
 
-  static void view() {
+  void view() {
     System.out.println("[회원 조회]");
 
     System.out.print("번호? ");
     int index = Integer.parseInt(keyScan.nextLine());
 
-    if (index < 0 || index >= ArrayList2.size) {
+    if (index < 0 || index >= memberList.size) {
       System.out.println("무효한 회원 번호입니다.");
       return;
     }
 
-    Member member = (Member) ArrayList2.retrieve(index);
+    Member member = (Member) memberList.retrieve(index);
 
     System.out.printf("이름: %s\n", member.name);
     System.out.printf("이메일: %s\n", member.email);
@@ -115,18 +129,18 @@ public class MemberHandler implements Handler {
     //member레퍼런스가 가리키는 working값에 따라 예와 아니오가 따로나옴 (조건연산자사용. 조건문이 아님!)
   }
 
-  static void update() {
+  void update() {
     System.out.println("[회원 변경]");
 
     System.out.print("번호? ");
     int index = Integer.parseInt(keyScan.nextLine());
 
-    if (index < 0 || index >= ArrayList2.size) {
+    if (index < 0 || index >= memberList.size) {
       System.out.println("무효한 회원 번호입니다.");
       return;
     }
 
-    Member member = (Member) ArrayList2.retrieve(index);
+    Member member = (Member) memberList.retrieve(index);
 
     System.out.printf("이름(%s)? " , member.name);
     String name = keyScan.nextLine();
@@ -158,13 +172,13 @@ public class MemberHandler implements Handler {
     System.out.println("회원을 변경하였습니다.");
   }
 
-  static void delete() {
+  void delete() {
     System.out.println("[회원 삭제]");
 
     System.out.print("번호? ");
     int index = Integer.parseInt(keyScan.nextLine());
 
-    if (index < 0 || index >= ArrayList2.size) {
+    if (index < 0 || index >= memberList.size) {
       System.out.println("무효한 회원 번호입니다.");
       return;
     }
@@ -175,7 +189,7 @@ public class MemberHandler implements Handler {
       return;
     } 
 
-    ArrayList2.remove(index);
+    memberList.remove(index); // 같은클래스의 같은 메서드(ArrayList)를 사용하지만 memberList라는 배열의 index번째 값을 지워라(remove)
 
     System.out.println("회원을 삭제하였습니다.");
   }

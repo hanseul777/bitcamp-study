@@ -2,9 +2,11 @@
 //
 package com.eomcs.oop.ex03;
 
-public class Exam0110 {
-  public static void main(String[] args) {
-    class A {
+public class Exam0110 { // <= 패키지멤버클래스
+  public static void main(String[] args) { // <= 스태틱 중첩클래스
+
+    // 논스태틱중첩클래스 = inner 클래스
+    class A { //main메서드를 호출할 때 A클래스가 만들어진다 X -> A클래스는 main메서드에서만 사용이 가능하다!
       // 인스턴스 변수
       // => new 명령을 통해 생성된다.
       // => new 명령을 실행하기 전까지는 인스턴스 변수는 존재하지 않는다.
@@ -19,7 +21,7 @@ public class Exam0110 {
     // 단지 설계도일 뿐이다.
     A obj1 = new A();
     A obj2 = new A();
-    A obj3 = new A();
+    A obj3 = new A(); //로컬변수 : main메서드가 실행 될 때 생성된다.
 
     // 이렇게 생성된 메모리를 "인스턴스", "객체"라고 부른다.
     // 이 인스턴스의 주소를 저장하는 obj1, obj2, obj3를 "레퍼런스"라 부른다.
@@ -28,7 +30,7 @@ public class Exam0110 {
     // 인스턴스 변수는 레퍼런스를 통해 사용할 수 있다.
     obj1.v1 = 100;
     obj2.v1 = 200;
-    obj3.v1 = 300;
+    obj3.v1 = 300; //obj3에 저장 된 주소를 찾아가서 그 중 v1에 300을 줌.
 
     System.out.printf("%d, %d, %d\n", obj1.v1, obj2.v1, obj3.v1);
   }

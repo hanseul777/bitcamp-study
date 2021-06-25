@@ -3,7 +3,11 @@ package com.eomcs;
 import java.util.Scanner;
 
 public class ComputeHandler implements Handler{
-  static Scanner keyScan;
+  Scanner keyScan;
+
+  ComputeHandler(Scanner keyScan) {
+    this.keyScan = keyScan;
+  }
 
   public void execute() { //static이 없으면 메소드명으로 호출이 불가능 함. -> 인스턴스를 만들어 줘야 함.
     while (true) {
