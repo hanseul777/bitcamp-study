@@ -3,7 +3,9 @@ package net.hb.day0628;
 public class TestJumin {
 
   public static void main(String[] args) {
+
     //java.lang패키지 String클래스의 메소드 char charAt(int)
+
     String min = "971024-2541965";
 
     // 조건if 남자입니다 || 여자입니다
