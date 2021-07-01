@@ -1,41 +1,96 @@
 package net.hb.day0628;
 
-public class Work05Hotel {
-  //생성자 클래스이름, 리턴값X, void기술X
-  //생성자사용은 new키워드 다음에 기술 클래스 ob = new클래스()
-  //생성자는 중복가능, 기본생성자 생략가능
-  //멤버필드 = 전역변수 private
-  private int floor ; //층 = 행 3층
-  private int room ; //방 = 열 5호  3층*5열 = 15방구성
+import java.util.Scanner;
+
+public class Work05Hotel {   
+
+  private int floor ; //층=행 3층
+  private int room ;  //호=열 5호  3층*5열=15방구성
   private String[][] name = new String[3][5];
   private String title;
+  private String cos;
 
-  public Work05Hotel () { }
-  public Work05Hotel (String name) { 
-    System.out.println("**" + name + "**");
-    System.out.println("name" + "방문을 축하합니다");
-  }
-  public Work05Hotel (String name, int year) { }
+  public Work05Hotel(){ }
+  public Work05Hotel(String name){ }
+  public Work05Hotel(String name, int year){ }
+
+  Scanner sc = new Scanner(System.in);
 
   public void process() {
+    //map()호출
+    map();
 
-  }
+    int sel = 9;
+
+    while(true) {
+      System.out.print("\n1.투숙  2.퇴실  3.map  4.list 9.종료 >>>");
+      sel = Integer.parseInt(sc.nextLine());
+
+      switch (sel) {
+        case 1 : checkIn(); break;
+
+        case 2 :
+          break;
+
+        case 3 : map(); break;
+
+        case 4 :
+          break;
+      }
+      if(sel==9) { 
+        System.out.println("호텔예약프로그램 종료합니다");
+        System.exit(1);
+      }
+      switch(sel) {
+
+      }//switch end
+    }//while end
+  }//end
 
   public void checkIn() {
+    System.out.println(">몇층에 투숙?");
+    int floor = Integer.parseInt(sc.nextLine());
+    System.out.println(">몇호에 투숙?");
+    int room = Integer.parseInt(sc.nextLine());
+    System.out.println(">투숙객 이름?");
+    String cos = sc.nextLine();
+    name[room-1][floor-1] = cos;
 
-  }
+  }//end
 
   public void checkOut() {
 
-  }
+  }//end
 
-  public void map() { // printAll()=list()=display()
+  public void map(){ //non-static메소드 
+    System.out.println("\n\t[ "+ title +" 투숙 상태 ]");
+    for(int i = 0; i < 3; i++){
+      for(int b = 0; b < 5; b++){
+        System.out.print((i+1)+"0"+(b+1)+"\t");
+      }
 
-  }
+      System.out.println(); //이름표시 공백란입니다
+
+      for(int j = 0; j < 5; j++){
+        if(this.name[i][j] == null){
+          System.out.print("\t");
+          continue;
+        }//if end
+        System.out.print(this.name[i][j]+"\t"); 
+      }//j end
+      System.out.println("\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ"); // \n꼭넣으세요 
+    }//for i end
+  } //map end
+
+  public void list() { //영림쌤 구현해서 보여드리겠습니다 
+
+  }//end
 
   public static void main(String[] args) {
+    System.out.println("7월1일 목요일  4시19분");
     Work05Hotel wh = new Work05Hotel();
-
-  }
-
+    wh.process();
+  }//end
 }//class END
+
+
