@@ -34,8 +34,7 @@ public class Work05Hotel {
 
         case 3 : map(); break;
 
-        case 4 :
-          break;
+        case 4 : list(); break;
       }
       if(sel==9) { 
         System.out.println("호텔예약프로그램 종료합니다");
@@ -54,7 +53,7 @@ public class Work05Hotel {
     int room = Integer.parseInt(sc.nextLine());
     System.out.println(">투숙객 이름?");
     String cos = sc.nextLine();
-    name[room-1][floor-1] = cos;
+    name[floor-1][room-1] = cos;
 
   }//end
 
@@ -82,8 +81,18 @@ public class Work05Hotel {
     }//for i end
   } //map end
 
-  public void list() { //영림쌤 구현해서 보여드리겠습니다 
-
+  public void list() { 
+    System.out.println("\n\t[ list ]");
+    for(int i = 0; i < 3; i++){
+      for(int j = 0; j < 5; j++){
+        if(name[i][j] == null) {
+          System.out.print( " " + (i+1)+"0"+(j+1) +"호"+"□\t" +"\t"); 
+        }else {
+          System.out.print( " " + (i+1)+"0"+(j+1) +"호"+"■\t" + name[i][j] + "\t"); 
+        }
+      } //j end
+      System.out.println();
+    }//for i end
   }//end
 
   public static void main(String[] args) {
