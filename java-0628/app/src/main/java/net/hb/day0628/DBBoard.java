@@ -78,7 +78,27 @@ public class DBBoard { //test테이블
       bbs.dbConnect(); //생략하면 문법에러 없습니다
       bbs.dbSelectAll();
       bbs.dbDelete();
+      bbs.dbEdit();
 
     }catch(Exception ex){ }
   }//end
+
+  public void dbEdit() {
+    try {
+      //수정처리는 대상 필드 name,title
+      System.out.print("수정code 입력>>> ");
+      String ecode = sc.nextLine();
+      System.out.print("수정name 입력>>> ");
+      String ename = sc.nextLine();
+      System.out.print("수정title 입력>>> ");
+      String etitle = sc.nextLine();
+      msg = "update test set name = 'ename', title = 'etitle' where code = 'ecode' ";
+      System.out.println(msg);
+      ST = CN.createStatement();
+      int OK = ST.executeUpdate(msg);
+      if (OK>0) {System.out.println(ecode + "데이터 수정성공");}
+      else {System.out.println(ecode + "데이터 수정실패");}
+      dbSelectAll();      
+    }catch(Exception ex){} 
+  }
 }//Board class END
