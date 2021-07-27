@@ -4,64 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test14</title>
+    <title>test14.html</title>
     <style>
-        *{font-size:24pt;}
+        * {font-size: 16pt;}
     </style>
 </head>
 <body>
-    <p></p><br>
     <table border="1" width="1200" cellspacing="0">
-        <tr bgcolor="pink">  
-            <th>강의시간</th> 
-            <th>강의과목</th>
-            <th>담당강사</th>
-            <th>강의실</th>
-            <th>기타비고</th>
-        </tr>
-        <tr>
-            <td>오전10:00</td>
-            <td>스프링</td>
-            <td>강요천</td>
-            <td>종로702</td>
-            <td rowspan="4">
-                -전체공지사항<br>
-                &nbsp;문의사항은 인포 <br>
-                &nbsp;02-788-9090 <br>
-                &nbsp;웹엑스사용
-            </td>
-        </tr>
-        <tr>
-            <td>오전12:00</td>
-            <td>jQuery</td>
-            <td>엄진영</td>
-            <td>서초506</td>
-        </tr>
-        <tr onmouseover="style.backgroundColor='#00FFFF'"  onmouseout="style.backgroundColor='#00FFFF'">
-            <td>오전12:00</td>
-            <td>java</td>
-            <td>김영림</td>
-            <td>신촌202</td>
-        </tr>
-        <tr>
-            <td>오전12:00</td>
-            <td>SQL튜닝</td>
-            <td>홍길동</td>
-            <td>서초102</td>
-        </tr>
-    </table>
+    <caption>2021년 원본</caption>
+    <tr bgcolor="yellow">
+        <th>강의시간</th>
+        <th>강의과목</th>
+        <th>담당강사</th>
+        <th>강의실</th>
+        <th>기타비고</th>
+    </tr>
 
-    <table width=1000  border="1" cellspacing="0">
-        <tr align="center" bgcolor="orange"> 
-            <td colspan="2"> *** 홍길동님의 프사 *** </td>
-        </tr>
-        <tr> 
-            <td rowspan="4"> <img src="images/bbb.gif"></td>
-            <td>메일주소: aaa@bit.com</td>
-        </tr>
-        <tr> <td>연락처: 010-****-6789 </td> </tr>
-        <tr> <td>근무부서: 웹서버서비스</td> </tr>
-        <tr> <td>소속회사: bitcamp</td></tr>        
+    <tr onmouseover="style.backgroundColor='red'" onmouseout="style.backgroundColor=''">
+        <td>오전10:00</td>
+        <td>스프링</td>
+        <td>강요천</td>
+        <td>종로702</td>
+        <td rowspan="4">
+            &nbsp; 전체공지사항 <br>
+            &nbsp; 문의사항 인포 <br>
+            &nbsp; 01-788-9900 <br>
+            &nbsp; 웹엑스 사용 <br>
+        </td>
+    </tr>
+
+    <tr onmouseover="style.backgroundColor='red'" onmouseout="style.backgroundColor=''">
+        <td>오전10:00</td>
+        <td>자바</td>
+        <td>엄진영</td>
+        <td>신촌702</td>
+    </tr>
+
+    <tr onmouseover="style.backgroundColor='yellow' "   onmouseout="style.backgroundColor=''">
+        <td>오전12:00</td>
+        <td>파이썬</td>
+        <td>문빈</td>
+        <td>강남304</td>
+    </tr>
     </table>
 </body>
 </html>
